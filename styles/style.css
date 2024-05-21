@@ -46,9 +46,6 @@
 	background-color: var(--main-color, #fff);
 	text-transform: uppercase;
 	padding: clamp(120px, 7.1479rem + 1.5023vw, 8.5rem) 0 25px 0;
-	display: grid;
-	place-items: center;
-	place-content: center;
 	line-height: 1.2;
 }
 
