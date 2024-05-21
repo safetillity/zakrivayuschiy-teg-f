@@ -1,12 +1,18 @@
 :root {
-	--main-color: white;
-	--text-color: black;
-  --background-color:white;
+	--main-color: #fff;
+	--text-color: #000;
+	--background-color: #fff;
 	--title-font-weight: 700;
 	--text-font-weight: 400;
-	--background:  repeating-linear-gradient( to left,#d3d3d3 0 2px, #d3d3d300 2px 4px  ),repeating-linear-gradient(to bottom, #d3d3d3 0 2px, #d3d3d300 2px 4px), linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%);
-	--header-font: 'PressStart2P', sans-serif;
-	--main-font: 'Inter-Variable', monospace;
-  --button-text-color:white;
-  --heart-color:red;
+	--background: repeating-linear-gradient(
+			to left,
+			#d3d3d3 0 2px,
+			#d3d3d300 2px 4px
+		),
+		repeating-linear-gradient(to bottom, #d3d3d3 0 2px, #d3d3d300 2px 4px),
+		linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%);
+	--accent-font: 'PressStart2P', fantasy;
+	--main-font: 'Inter', sans-serif;
+	--button-text-color: #fff;
+	--heart-color: red;
 }

@@ -17,9 +17,9 @@
 .page {
 	min-inline-size: 320px;
 	min-block-size: 100dvb;
-	color: var(--text-color, black);
-	font-family: var(--main-font, 'Inter-variable', sans-serif);
-	background-color: var(--background-color, white);
+	color: var(--text-color, #000);
+	font-family: var(--main-font, 'Inter', sans-serif);
+	background-color: var(--background-color, #fff);
 	background: var(
 		--background,
 		repeating-linear-gradient(to left, #d3d3d3 0 2px, #d3d3d300 2px 4px),
@@ -39,35 +39,33 @@
 	place-content: center;
 	margin: 100px auto;
 	font-variation-settings: 'wght' var(--title-font-weight, 700);
-	font-family: var(--header-font, 'PressStart2P', sans-serif);
+	font-family: var(--accent-font, 'PressStart2P', sans-serif);
 	inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
 	block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
-	border: solid var(--text-color, black) 2px;
-	background-color: var(--main-color, white);
+	border: solid var(--text-color, #000) 2px;
+	background-color: var(--main-color, #fff);
 	text-transform: uppercase;
-}
-
-.title {
-	padding: clamp(120px, 7.1479rem + 1.5023vw, 8.5rem) 0 0 0;
+	padding: clamp(120px, 7.1479rem + 1.5023vw, 8.5rem) 0 25px 0;
 	display: grid;
-	gap: 20px;
 	place-items: center;
 	place-content: center;
+	line-height: 1.2;
 }
 
-.title__logo {
+.header__logo {
 	font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+	margin-bottom: 13px;
 }
 
-.title__text {
+.header__text {
 	font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+	margin-bottom: 19px;
 }
 
 .theme-menu__list {
 	display: grid;
-	gap: 8px;
-	padding: 20px 0;
-	padding-inline-start: 20px;
+	gap: 5.5px;
+	padding-inline-start: 22px;
 }
 
 .theme-menu__button {
@@ -100,17 +98,18 @@
 }
 
 .theme-menu__button:focus,
-.button,
+.button:focus,
 .card__icon-button:focus {
 	outline: none;
 }
 
 .theme-menu__button:focus-visible::after,
-.card__like-button:hover::before {
+.button:hover::before {
 	transform: scaleX(1);
 }
 
-.theme-menu__button:hover {
+.theme-menu__button:hover,
+.theme-menu__button:focus {
 	opacity: 0.6;
 }
 
@@ -129,11 +128,12 @@
 .card {
 	display: grid;
 	inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
-	background-color: var(--main-color, white);
-	border: solid var(--text-color, black) 2px;
+	background-color: var(--main-color, #fff);
+	border: solid var(--text-color, #000) 2px;
 }
 
 .card__title {
+	line-height: 1.2;
 	padding: 5px 10px;
 	font-variation-settings: 'wght' var(--title-font-weight, 700);
 	font-size: 18px;
@@ -141,33 +141,35 @@
 
 .card__paragraph {
 	line-height: 21px;
-	font-family: var(--main-font, 'Inter-variable', sans-serif);
+	font-family: var(--main-font, 'Inter', sans-serif);
 }
 
-.cover {
+.card__cover {
 	position: relative;
-	border: solid var(--text-color, black) 2px;
+	border: solid var(--text-color, #000) 2px;
 }
 
 .original-image {
 	display: block;
-	width: 100%;
-	height: 100%;
+	inline-size: 100%;
+	block-size: 100%;
 	object-fit: cover;
 	object-position: center;
 	aspect-ratio: 1 / 1;
 }
 
-.watermark {
+.card__watermark {
+	mix-blend-mode: hard-light;
+	line-height: 1.2;
 	position: absolute;
 	inset-inline-end: 13px;
 	inset-block-start: 24px;
 	opacity: 0.5;
-	color: var(--text-color, black);
-	font-family: var(--header-font, 'PressStart2P', sans-serif);
+	color: var(--text-color, #000);
+	font-family: var(--accent-font, 'PressStart2P', fantasy);
 	font-weight: 400;
 	font-size: 14px;
-	text-shadow: 0 0 1px var(--background-color, white);
+	text-shadow: 0 0 1px var(--background-color, #fff);
 }
 
 .card__content {
@@ -192,6 +194,11 @@
 	background-color: transparent;
 	cursor: pointer;
 	z-index: 1;
+	transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+	border-color: var(--text-color, #000000);
 }
 
 .button {
@@ -199,11 +206,11 @@
 	display: flex;
 	justify-content: center;
 	place-items: center;
-	border: 2px solid var(--text-color, black);
-	background: var(--background-color, white);
+	border: 2px solid var(--text-color, #000);
+	background: var(--background-color, #fff);
 	transition: box-shadow 0.3s ease;
 	cursor: pointer;
-	font-family: var(--header-font, 'PressStart2P', sans-serif);
+	font-family: var(--accent-font, 'PressStart2P', fantasy);
 	line-height: 90%;
 	font-size: 14px;
 }
@@ -215,10 +222,10 @@
 }
 
 .button:focus-visible {
-	box-shadow: 2px 2px var(--text-color, black);
+	box-shadow: 2px 2px var(--text-color, #000);
 }
 
-.card__like-button:before {
+.button::before {
 	content: '';
 	position: absolute;
 	display: block;
@@ -230,45 +237,43 @@
 	block-size: 100%;
 }
 
-.button__text {
+.difference {
 	z-index: 1;
 	mix-blend-mode: difference;
-	color: var(--button-text-color, white);
+	color: var(--button-text-color, #fff);
 }
 
 .footer {
-	margin: 50px auto 100px;
+	margin: 56px auto 100px;
 	display: grid;
 	place-content: center;
 }
 
 .footer__button {
-	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	border: 2px solid var(--text-color, black);
 	inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
 	min-block-size: 5rem;
 }
 
 .dialog {
 	inline-size: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
-	color: var(--text-color, black);
+	color: var(--text-color, #000);
 	padding: 0;
+	border: 2px solid var(--text-color, #000);
 }
 
 .dialog::backdrop {
-	opacity: 0.75;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.75);
 }
 
 .modal-window {
 	display: grid;
 	gap: 30px;
-	background-color: var(--background-color, white);
-	color: var(--text-color, black);
+	background-color: var(--background-color, #fff);
+	color: var(--text-color, #000);
 	line-height: 1.5;
-	font-family: var(--header-font, 'PressStart2P', sans-serif);
+	font-family: var(--accent-font, 'PressStart2P', fantasy);
 	text-transform: uppercase;
 	padding: 25px 30px;
 }
@@ -282,8 +287,6 @@
 }
 
 .close-button {
-	justify-content: center;
-	align-items: center;
 	gap: 10px;
 	width: 100%;
 	min-height: 38px;
@@ -296,7 +299,7 @@
 		min-block-size: 3.125rem;
 	}
 
-	.footer__button svg {
+	.floppy {
 		width: 21px;
 		height: 21px;
 	}
@@ -306,7 +309,7 @@
 	(-webkit-text-stroke: 1px var(--background-color, #ffffff)) or
 		(text-stroke: 1px var(--background-color, #ffffff))
 ) {
-	.watermark {
+	.card__watermark {
 		text-shadow: none;
 		-webkit-text-stroke: 1px var(--background-color, #ffffff);
 		text-stroke: 1px var(--background-color, #ffffff);
