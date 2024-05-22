@@ -4,12 +4,10 @@
 	color: var(--text-color, #000);
 	font-family: var(--main-font, 'Inter', sans-serif);
 	background-color: var(--background-color, #fff);
-	background: var(
-		--background,
-		repeating-linear-gradient(to left, #d3d3d3 0 2px, #d3d3d300 2px 4px),
-		repeating-linear-gradient(to bottom, #d3d3d3 0 2px, #d3d3d300 2px 4px),
-		linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%)
-	);
+	background: var(--background,
+			repeating-linear-gradient(to left, #d3d3d3 0 2px, #d3d3d300 2px 4px),
+			repeating-linear-gradient(to bottom, #d3d3d3 0 2px, #d3d3d300 2px 4px),
+			linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%));
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -261,6 +259,12 @@
 	padding: 25px 30px;
 }
 
+.floppy {
+	z-index: 1;
+	mix-blend-mode: difference;
+	color: var(--button-text-color, #fff);
+}
+
 .dialog__warning {
 	display: flex;
 	gap: 20px;
@@ -284,18 +288,12 @@
 	}
 
 	.floppy {
-			z-index: 1;
-	mix-blend-mode: difference;
-	color: var(--button-text-color, #fff);
 		width: 21px;
 		height: 21px;
 	}
 }
 
-@supports (
-	(-webkit-text-stroke: 1px var(--background-color, #ffffff)) or
-		(text-stroke: 1px var(--background-color, #ffffff))
-) {
+@supports ((-webkit-text-stroke: 1px var(--background-color, #ffffff)) or (text-stroke: 1px var(--background-color, #ffffff))) {
 	.card__watermark {
 		text-shadow: none;
 		-webkit-text-stroke: 1px var(--background-color, #ffffff);
