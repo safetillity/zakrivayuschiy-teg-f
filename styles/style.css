@@ -34,13 +34,13 @@
 
 .header__logo {
 	font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-	line-height: normal;
+	line-height: 1;
 	margin-bottom: 20px;
 }
 
 .header__text {
 	font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-	line-height: normal;
+	line-height: 1;
 	margin-bottom: 20px;
 }
 
@@ -58,7 +58,7 @@
 	position: relative;
 	text-transform: uppercase;
 	font-size: 14px;
-	line-height: normal;
+	line-height: 1;
 }
 
 .theme-menu__button:disabled::before {
@@ -152,7 +152,7 @@
 	font-weight: 400;
 	font-size: 14px;
 	text-shadow: 0 0 1px var(--background-color, #fff);
-	line-height: normal;
+	line-height: 1;
 }
 
 .card__content {
@@ -284,6 +284,9 @@
 	}
 
 	.floppy {
+			z-index: 1;
+	mix-blend-mode: difference;
+	color: var(--button-text-color, #fff);
 		width: 21px;
 		height: 21px;
 	}
