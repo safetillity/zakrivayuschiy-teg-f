@@ -8,8 +8,7 @@
 	}
 }
 
-.like-icon .core
-{
+.like-icon .core {
 	fill: transparent;
 	transition: fill 0.3s linear;
 }
@@ -29,7 +28,7 @@
 	transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon:active .core{
+.like-icon:active .core {
 	fill: var(--heart-color, red);
 	transition: fill 0.3s linear;
 }
@@ -39,8 +38,8 @@
 	transition: fill 0.3s linear;
 }
 
-.like-icon:active .main-body{
-fill: var(--heart-color, red);
+.like-icon:active .main-body {
+	fill: var(--heart-color, red);
 	transition: fill 0.3s linear 0.05s;
 }
 
